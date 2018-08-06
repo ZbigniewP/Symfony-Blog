@@ -1,0 +1,52 @@
+AppBundle\Entity\User:
+    type: entity
+    table: symfony_demo_user
+    repositoryClass: AppBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fullName:
+            type: string
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+        username:
+            type: string
+            scale: 0
+            length: null
+            unique: true
+            nullable: false
+            precision: 0
+        email:
+            type: string
+            scale: 0
+            length: null
+            unique: true
+            nullable: false
+            precision: 0
+        password:
+            type: string
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+        roles:
+            type: json_array
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+    lifecycleCallbacks: {  }
