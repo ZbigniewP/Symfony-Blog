@@ -13,9 +13,9 @@ doctrine:
         # url: '%env(resolve:DATABASE_URL)%'
 
         default_connection:     default
-        # default_connection:     blog_yii
+        # default_connection:     db_yii
         # default_connection:     blog_symfony
-        # default_connection:     blog_cake
+        # default_connection:     db_cake
         connections:
             default:
                 driver:         'pdo_sqlite'
@@ -26,24 +26,24 @@ doctrine:
                 url:            '%env(resolve:DATABASE_URL)%'
                 # url:            '%env(DATABASE_URL)%'
 
-            blog_yii:
+            db_yii:
                 driver:         'pdo_sqlite'
                 server_version: '3.20'
-                # dbname:         blog_yii
+                # dbname:         db_yii
                 charset:        utf8
                 url:            sqlite:///%kernel.project_dir%/var/blog_yii.sqlite
 
-            blog_cake:
+            db_cake:
                 driver:         'pdo_sqlite'
                 server_version: '3.20'
-                # dbname:         blog_cake
+                # dbname:         db_cake
                 charset:        utf8
                 url:            sqlite:///%kernel.project_dir%/var/blog_cake.sqlite
 
-            blog_symfony:
+            db_symfony:
                 driver:         'pdo_sqlite'
                 server_version: '3.20'
-                # dbname:         blog_symfony
+                # dbname:         db_symfony
                 charset:        utf8
                 url:            sqlite:///%kernel.project_dir%/var/blog_symfony.sqlite
 
@@ -58,3 +58,55 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+        # default_entity_manager: orm_symfony
+        # entity_managers:
+        #     default:
+        #         connection: default
+        #         # auto_mapping: true
+        #         # mappings:
+        #         #     Main:
+        #         #         is_bundle: false
+        #         #         type: annotation
+        #         #         dir: '%kernel.project_dir%/src/Entity/Main'
+        #         #         prefix: 'App\Entity\Main'
+        #         #         alias: Main
+
+        #     # orm_yii:
+        #     #     connection: db_yii
+        #     #     # mappings:
+        #     #     #     Customer:
+        #     #     #         is_bundle: false
+        #     #     #         type: annotation
+        #     #     #         dir: '%kernel.project_dir%/src/Entity/Customer'
+        #     #     #         prefix: 'App\Entity\Customer'
+        #     #     #         alias: Customer
+        #     # orm_cake:
+        #     #     connection: db_cake
+
+            # orm_symfony:
+            #     connection: db_symfony
+            #     mappings:
+            #         Comment:
+            #             is_bundle: false
+            #             type: annotation
+            #             dir: '%kernel.project_dir%/src/Entity'
+            #             prefix: 'App\Entity\Comment'
+            #             alias: Comment
+            #         Post:
+            #             is_bundle: false
+            #             type: annotation
+            #             dir: '%kernel.project_dir%/src/Entity'
+            #             prefix: 'App\Entity\Post'
+            #             alias: Post
+            #         Tag:
+            #             is_bundle: false
+            #             type: annotation
+            #             dir: '%kernel.project_dir%/src/Entity'
+            #             prefix: 'App\Entity\Tag'
+            #             alias: Tag
+            #         User:
+            #             is_bundle: false
+            #             type: annotation
+            #             dir: '%kernel.project_dir%/src/Entity'
+            #             prefix: 'App\Entity\User'
+            #             alias: User

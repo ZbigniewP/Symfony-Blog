@@ -15,15 +15,16 @@ require 'app_dev.php';
 
 // $_users = getUserData();
 
-// foreach ($_users as [$fullname, $username, $password, $email, $roles])
+// foreach ($_users as [$fullname, $username, $password, $email, $roles]) {
 //     $data[] = [$fullname, $username, $password, $email, $roles];
+// }
 
 // // while (list($fullname, $username, $password, $email, $roles) = each($_users))
 // //     $data[] = [$fullname, $username, $password, $email, $roles];
 
 // // foreach ($_users as $val) $data[] = $val;
 
-// echo "<pre>";
+// echo '<pre>';
 // print_r([$data, $_users]);
-// echo "</pre>";
+// echo '</pre>';
 // exit();

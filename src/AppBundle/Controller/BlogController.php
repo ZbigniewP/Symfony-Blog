@@ -51,22 +51,24 @@ class BlogController extends Controller
     public function indexAction($page, $_format)
     {
         $em = $this->getDoctrine()->getManager();
-        // $em = $this->getDoctrine()->getManager('blog_symfony');
-        // These methods also return the default entity manager, but it's preferred
-        // to get it by injecting EntityManagerInterface in the action method
+        // $em = $this->getDoctrine()->getManager('orm_symfony');
+
+        ## These methods also return the default entity manager, but it's preferred
+        ## to get it by injecting EntityManagerInterface in the action method
         // $em = $this->getDoctrine()->getManager();
         // $em = $this->getDoctrine()->getManager(default');
         // $em = $this->get('doctrine.orm.default_entity_manager');
 
-        // Both of these return the "customer" entity manager
+        ## Both of these return the "customer" entity manager
         // $cem = $this->getDoctrine()->getManager('customer');
         // $cem = $this->get('doctrine.orm.customer_entity_manager');
 
         $posts = $em->getRepository(Post::class)->findLatest($page);
 
-        // Every template name also has two extensions that specify the format and
-        // engine for that template.
-        // See https://symfony.com/doc/current/templating.html#template-suffix
+        ## Every template name also has two extensions that specify the format and
+        ## engine for that template.
+        ## See https://symfony.com/doc/current/templating.html#template-suffix
+// print_r($posts);exit;
         return $this->render('blog/index.'.$_format.'.twig', ['posts' => $posts]);
     }
 
