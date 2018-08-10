@@ -72,10 +72,10 @@ doctrine:
         # if you don't want to use SQLite, change the URL in parameters.yml or set the DATABASE_URL environment variable
         # url: '%env(DATABASE_URL)%'
 
-        default_connection:     default
-        # default_connection:     blog_yii
-        # default_connection:     blog_symfony
-        # default_connection:     blog_cake
+        # default_connection:     default
+        # default_connection:     db_yii
+        default_connection:     db_symfony
+        # default_connection:     db_cake
         connections:
             default:
                 driver:         'pdo_sqlite'
@@ -86,30 +86,30 @@ doctrine:
                 # url:            '%env(resolve:DATABASE_URL)%'
                 url:            '%env(DATABASE_URL)%'
 
-            blog_yii:
+            db_yii:
                 driver:         'pdo_sqlite'
                 server_version: '3.20'
-                # dbname:         blog_yii
+                # dbname:         db_yii
                 charset:        utf8
-                url:            sqlite:///%kernel.project_dir%/var/data/blog_yii.sdb3
+                url:            sqlite:///%kernel.project_dir%/var/data/blog_yii.sqlite
 
-            blog_cake:
+            db_cake:
                 driver:         'pdo_sqlite'
                 server_version: '3.20'
-                # dbname:         blog_cake
+                # dbname:         db_cake
                 charset:        utf8
-                url:            sqlite:///%kernel.project_dir%/var/data/blog_cake.sdb3
+                url:            sqlite:///%kernel.project_dir%/var/data/blog_cake.sqlite
 
-            blog_symfony:
+            db_symfony:
                 driver:         'pdo_sqlite'
                 server_version: '3.20'
-                # dbname:         blog_symfony
+                # dbname:         db_symfony
                 charset:        utf8
-                url:            sqlite:///%kernel.project_dir%/var/data/blog_symfony.sdb3
+                url:            sqlite:///%kernel.project_dir%/var/data/blog_symfony.sqlite
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         auto_mapping: true
-        # default_entity_manager: blog_symfony
+        # default_entity_manager: orm_symfony
         # entity_managers:
         #     default:
         #         connection: default
@@ -122,8 +122,8 @@ doctrine:
         #         #         prefix: 'App\Entity\Main'
         #         #         alias: Main
 
-        #     # blog_yii:
-        #     #     connection: blog_yii
+        #     # orm_yii:
+        #     #     connection: db_yii
         #     #     # mappings:
         #     #     #     Customer:
         #     #     #         is_bundle: false
@@ -131,11 +131,11 @@ doctrine:
         #     #     #         dir: '%kernel.project_dir%/src/Entity/Customer'
         #     #     #         prefix: 'App\Entity\Customer'
         #     #     #         alias: Customer
-        #     # blog_cake:
-        #     #     connection: blog_cake
+        #     # orm_cake:
+        #     #     connection: db_cake
 
-            # blog_symfony:
-            #     connection: blog_symfony
+            # orm_symfony:
+            #     connection: db_symfony
             #     mappings:
             #         Comment:
             #             is_bundle: false

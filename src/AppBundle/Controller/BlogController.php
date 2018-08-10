@@ -51,7 +51,7 @@ class BlogController extends Controller
     public function indexAction($page, $_format)
     {
         $em = $this->getDoctrine()->getManager();
-        // $em = $this->getDoctrine()->getManager('blog_symfony');
+        // $em = $this->getDoctrine()->getManager('orm_symfony');
         // These methods also return the default entity manager, but it's preferred
         // to get it by injecting EntityManagerInterface in the action method
         // $em = $this->getDoctrine()->getManager();
