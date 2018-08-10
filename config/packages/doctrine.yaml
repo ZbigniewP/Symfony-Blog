@@ -12,9 +12,9 @@ doctrine:
 
         # url: '%env(resolve:DATABASE_URL)%'
 
-        default_connection:     default
-        # default_connection:     db_yii
-        # default_connection:     blog_symfony
+        # default_connection:     default
+        default_connection:     db_yii
+        # default_connection:     db_symfony
         # default_connection:     db_cake
         connections:
             default:
@@ -71,42 +71,42 @@ doctrine:
         #         #         prefix: 'App\Entity\Main'
         #         #         alias: Main
 
-        #     # orm_yii:
-        #     #     connection: db_yii
-        #     #     # mappings:
-        #     #     #     Customer:
-        #     #     #         is_bundle: false
-        #     #     #         type: annotation
-        #     #     #         dir: '%kernel.project_dir%/src/Entity/Customer'
-        #     #     #         prefix: 'App\Entity\Customer'
-        #     #     #         alias: Customer
-        #     # orm_cake:
-        #     #     connection: db_cake
+        #     orm_yii:
+        #         connection: db_yii
+        #         # mappings:
+        #         #     Customer:
+        #         #         is_bundle: false
+        #         #         type: annotation
+        #         #         dir: '%kernel.project_dir%/src/Entity/Customer'
+        #         #         prefix: 'App\Entity\Customer'
+        #         #         alias: Customer
+        #     orm_cake:
+        #         connection: db_cake
 
-            # orm_symfony:
-            #     connection: db_symfony
-            #     mappings:
-            #         Comment:
-            #             is_bundle: false
-            #             type: annotation
-            #             dir: '%kernel.project_dir%/src/Entity'
-            #             prefix: 'App\Entity\Comment'
-            #             alias: Comment
-            #         Post:
-            #             is_bundle: false
-            #             type: annotation
-            #             dir: '%kernel.project_dir%/src/Entity'
-            #             prefix: 'App\Entity\Post'
-            #             alias: Post
-            #         Tag:
-            #             is_bundle: false
-            #             type: annotation
-            #             dir: '%kernel.project_dir%/src/Entity'
-            #             prefix: 'App\Entity\Tag'
-            #             alias: Tag
-            #         User:
-            #             is_bundle: false
-            #             type: annotation
-            #             dir: '%kernel.project_dir%/src/Entity'
-            #             prefix: 'App\Entity\User'
-            #             alias: User
+        #     orm_symfony:
+        #         connection: db_symfony
+        #         mappings:
+        #             Comment:
+        #                 is_bundle: false
+        #                 type: annotation
+        #                 dir: '%kernel.project_dir%/src/Entity'
+        #                 prefix: 'App\Entity\Comment'
+        #                 alias: Comment
+        #             Post:
+        #                 is_bundle: false
+        #                 type: annotation
+        #                 dir: '%kernel.project_dir%/src/Entity'
+        #                 prefix: 'App\Entity\Post'
+        #                 alias: Post
+        #             Tag:
+        #                 is_bundle: false
+        #                 type: annotation
+        #                 dir: '%kernel.project_dir%/src/Entity'
+        #                 prefix: 'App\Entity\Tag'
+        #                 alias: Tag
+        #             User:
+        #                 is_bundle: false
+        #                 type: annotation
+        #                 dir: '%kernel.project_dir%/src/Entity'
+        #                 prefix: 'App\Entity\User'
+        #                 alias: User
