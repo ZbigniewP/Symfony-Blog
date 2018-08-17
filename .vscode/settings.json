@@ -1,3 +1,4 @@
 {
-    "phpserver.relativePath": "./public"
+    // "phpserver.relativePath": "./public"
+    "phpserver.relativePath": "./web"
 }
