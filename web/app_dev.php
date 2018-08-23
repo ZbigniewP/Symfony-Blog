@@ -35,6 +35,8 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
 
 /** @var Composer\Autoload\ClassLoader $loader */
 $loader = require __DIR__.'/../vendor/autoload.php';
+
+require_once '../app/AppKernel.php';
 Debug::enable();
 
 $kernel = new AppKernel('dev', true);
