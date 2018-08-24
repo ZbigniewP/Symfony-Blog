@@ -7,9 +7,9 @@ use Symfony\Component\DependencyInjection\Parameter;
 /*
 
 $container->setDefinition(
-    'yii_blogblog.example',
+    'yii_blog.example',
     new Definition(
-        'yiiBlog\blogBundle\Example',
+        'yiiBlog\Bundle\Example',
         array(
             new Reference('service_id'),
             "plain_value",

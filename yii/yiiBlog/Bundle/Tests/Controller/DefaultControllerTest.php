@@ -1,6 +1,6 @@
 <?php
 
-namespace yiiBlog\blogBundle\Tests\Controller;
+namespace yiiBlog\Bundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace yiiBlog\blogBundle\Controller;
+namespace yiiBlog\Bundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('yiiBlogblogBundle:Default:index.html.twig');
+        return $this->render('yiiBlogBundle:Default:index.html.twig');
     }
 }
