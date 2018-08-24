@@ -30,21 +30,21 @@ doctrine:
                 server_version: '3.20'
                 # dbname:         db_yii
                 charset:        utf8
-                url:            sqlite:///%kernel.project_dir%/var/data/blog_yii.sqlite
+                url:            sqlite:///%kernel.project_dir%/bin/data/blog_yii.sqlite
 
             db_cake:
                 driver:         'pdo_sqlite'
                 server_version: '3.20'
                 # dbname:         db_cake
                 charset:        utf8
-                url:            sqlite:///%kernel.project_dir%/var/data/blog_cake.sqlite
+                url:            sqlite:///%kernel.project_dir%/bin/data/blog_cake.sqlite
 
             db_symfony:
                 driver:         'pdo_sqlite'
                 server_version: '3.20'
                 # dbname:         db_symfony
                 charset:        utf8
-                url:            sqlite:///%kernel.project_dir%/var/data/blog_symfony.sqlite
+                url:            sqlite:///%kernel.project_dir%/bin/data/blog_symfony.sqlite
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'

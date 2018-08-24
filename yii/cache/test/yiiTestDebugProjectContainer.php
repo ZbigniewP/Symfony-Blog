@@ -9,8 +9,6 @@ use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
 
 /**
- * yiiTestDebugProjectContainer.
- *
  * This class has been auto-generated
  * by the Symfony Dependency Injection Component.
  *
@@ -21,9 +19,6 @@ class yiiTestDebugProjectContainer extends Container
     private $parameters;
     private $targetDirs = array();
 
-    /**
-     * Constructor.
-     */
     public function __construct()
     {
         $dir = __DIR__;
@@ -34,9 +29,10 @@ class yiiTestDebugProjectContainer extends Container
 
         $this->services = array();
         $this->methodMap = array(
-            '1_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a' => 'get1226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352aService',
-            '2_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a' => 'get2226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352aService',
+            '1_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9' => 'get1B8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9Service',
+            '2_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9' => 'get2B8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9Service',
             'annotation_reader' => 'getAnnotationReaderService',
+            'annotations.cache' => 'getAnnotations_CacheService',
             'annotations.reader' => 'getAnnotations_ReaderService',
             'argument_resolver.default' => 'getArgumentResolver_DefaultService',
             'argument_resolver.request' => 'getArgumentResolver_RequestService',
@@ -62,10 +58,8 @@ class yiiTestDebugProjectContainer extends Container
             'file_locator' => 'getFileLocatorService',
             'filesystem' => 'getFilesystemService',
             'fragment.handler' => 'getFragment_HandlerService',
-            'fragment.renderer.esi' => 'getFragment_Renderer_EsiService',
             'fragment.renderer.hinclude' => 'getFragment_Renderer_HincludeService',
             'fragment.renderer.inline' => 'getFragment_Renderer_InlineService',
-            'fragment.renderer.ssi' => 'getFragment_Renderer_SsiService',
             'http_kernel' => 'getHttpKernelService',
             'kernel.class_cache.cache_warmer' => 'getKernel_ClassCache_CacheWarmerService',
             'locale_listener' => 'getLocaleListenerService',
@@ -77,14 +71,15 @@ class yiiTestDebugProjectContainer extends Container
             'router.request_context' => 'getRouter_RequestContextService',
             'router_listener' => 'getRouterListenerService',
             'routing.loader' => 'getRouting_LoaderService',
-            'service_locator.f3e4af76f32830cd048a9a0d4662e709' => 'getServiceLocator_F3e4af76f32830cd048a9a0d4662e709Service',
+            'service_locator.7b18bb67293e366cd46f9fdd177f059b' => 'getServiceLocator_7b18bb67293e366cd46f9fdd177f059bService',
             'streamed_response_listener' => 'getStreamedResponseListenerService',
             'uri_signer' => 'getUriSignerService',
             'validate_request_listener' => 'getValidateRequestListenerService',
         );
         $this->privates = array(
-            '1_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a' => true,
-            '2_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a' => true,
+            '1_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9' => true,
+            '2_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9' => true,
+            'annotations.cache' => true,
             'annotations.reader' => true,
             'argument_resolver.default' => true,
             'argument_resolver.request' => true,
@@ -97,7 +92,7 @@ class yiiTestDebugProjectContainer extends Container
             'controller_name_converter' => true,
             'resolve_controller_name_subscriber' => true,
             'router.request_context' => true,
-            'service_locator.f3e4af76f32830cd048a9a0d4662e709' => true,
+            'service_locator.7b18bb67293e366cd46f9fdd177f059b' => true,
         );
         $this->aliases = array(
             'cache.app_clearer' => 'cache.default_clearer',
@@ -126,7 +121,7 @@ class yiiTestDebugProjectContainer extends Container
      */
     public function isFrozen()
     {
-        @trigger_error(sprintf('The %s() method is deprecated since version 3.3 and will be removed in 4.0. Use the isCompiled() method instead.', __METHOD__), E_USER_DEPRECATED);
+        @trigger_error(sprintf('The %s() method is deprecated since Symfony 3.3 and will be removed in 4.0. Use the isCompiled() method instead.', __METHOD__), E_USER_DEPRECATED);
 
         return true;
     }
@@ -138,7 +133,13 @@ class yiiTestDebugProjectContainer extends Container
      */
     protected function getAnnotationReaderService()
     {
-        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\CachedReader(${($_ = isset($this->services['annotations.reader']) ? $this->services['annotations.reader'] : $this->getAnnotations_ReaderService()) && false ?: '_'}, new \Symfony\Component\Cache\DoctrineProvider(\Symfony\Component\Cache\Adapter\PhpArrayAdapter::create((__DIR__.'/annotations.php'), ${($_ = isset($this->services['cache.annotations']) ? $this->services['cache.annotations'] : $this->getCache_AnnotationsService()) && false ?: '_'})), true);
+        $this->services['annotation_reader'] = $instance = new \Doctrine\Common\Annotations\CachedReader(${($_ = isset($this->services['annotations.reader']) ? $this->services['annotations.reader'] : $this->getAnnotations_ReaderService()) && false ?: '_'}, new \Doctrine\Common\Cache\ArrayCache(), true);
+
+        $instance->cacheProviderBackup = function () {
+            return ${($_ = isset($this->services['annotations.cache']) ? $this->services['annotations.cache'] : $this->getAnnotations_CacheService()) && false ?: '_'};
+        };
+
+        return $instance;
     }
 
     /**
@@ -178,7 +179,7 @@ class yiiTestDebugProjectContainer extends Container
      */
     protected function getCache_SystemService()
     {
-        return $this->services['cache.system'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('x3dUAyCihf', 0, 'gNT7CdnoIZMFKD9MCp1r51', (__DIR__.'/pools'), NULL);
+        return $this->services['cache.system'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('x3dUAyCihf', 0, 'mIp71oDFYRf--369QrHtt-', (__DIR__.'/pools'), NULL);
     }
 
     /**
@@ -209,8 +210,8 @@ class yiiTestDebugProjectContainer extends Container
     protected function getConfigCacheFactoryService()
     {
         return $this->services['config_cache_factory'] = new \Symfony\Component\Config\ResourceCheckerConfigCacheFactory(new RewindableGenerator(function () {
-            yield 0 => ${($_ = isset($this->services['1_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a']) ? $this->services['1_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a'] : $this->get1226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352aService()) && false ?: '_'};
-            yield 1 => ${($_ = isset($this->services['2_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a']) ? $this->services['2_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a'] : $this->get2226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352aService()) && false ?: '_'};
+            yield 0 => ${($_ = isset($this->services['1_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9']) ? $this->services['1_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9'] : $this->get1B8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9Service()) && false ?: '_'};
+            yield 1 => ${($_ = isset($this->services['2_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9']) ? $this->services['2_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9'] : $this->get2B8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9Service()) && false ?: '_'};
         }, 2));
     }
 
@@ -334,21 +335,7 @@ class yiiTestDebugProjectContainer extends Container
      */
     protected function getFragment_HandlerService()
     {
-        return $this->services['fragment.handler'] = new \Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler(${($_ = isset($this->services['service_locator.f3e4af76f32830cd048a9a0d4662e709']) ? $this->services['service_locator.f3e4af76f32830cd048a9a0d4662e709'] : $this->getServiceLocator_F3e4af76f32830cd048a9a0d4662e709Service()) && false ?: '_'}, ${($_ = isset($this->services['request_stack']) ? $this->services['request_stack'] : $this->get('request_stack')) && false ?: '_'}, true);
-    }
-
-    /**
-     * Gets the public 'fragment.renderer.esi' shared service.
-     *
-     * @return \Symfony\Component\HttpKernel\Fragment\EsiFragmentRenderer
-     */
-    protected function getFragment_Renderer_EsiService()
-    {
-        $this->services['fragment.renderer.esi'] = $instance = new \Symfony\Component\HttpKernel\Fragment\EsiFragmentRenderer(NULL, ${($_ = isset($this->services['fragment.renderer.inline']) ? $this->services['fragment.renderer.inline'] : $this->get('fragment.renderer.inline')) && false ?: '_'}, ${($_ = isset($this->services['uri_signer']) ? $this->services['uri_signer'] : $this->get('uri_signer')) && false ?: '_'});
-
-        $instance->setFragmentPath('/_fragment');
-
-        return $instance;
+        return $this->services['fragment.handler'] = new \Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler(${($_ = isset($this->services['service_locator.7b18bb67293e366cd46f9fdd177f059b']) ? $this->services['service_locator.7b18bb67293e366cd46f9fdd177f059b'] : $this->getServiceLocator_7b18bb67293e366cd46f9fdd177f059bService()) && false ?: '_'}, ${($_ = isset($this->services['request_stack']) ? $this->services['request_stack'] : $this->get('request_stack')) && false ?: '_'}, true);
     }
 
     /**
@@ -373,20 +360,6 @@ class yiiTestDebugProjectContainer extends Container
     protected function getFragment_Renderer_InlineService()
     {
         $this->services['fragment.renderer.inline'] = $instance = new \Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer(${($_ = isset($this->services['http_kernel']) ? $this->services['http_kernel'] : $this->get('http_kernel')) && false ?: '_'}, ${($_ = isset($this->services['debug.event_dispatcher']) ? $this->services['debug.event_dispatcher'] : $this->get('debug.event_dispatcher')) && false ?: '_'});
-
-        $instance->setFragmentPath('/_fragment');
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'fragment.renderer.ssi' shared service.
-     *
-     * @return \Symfony\Component\HttpKernel\Fragment\SsiFragmentRenderer
-     */
-    protected function getFragment_Renderer_SsiService()
-    {
-        $this->services['fragment.renderer.ssi'] = $instance = new \Symfony\Component\HttpKernel\Fragment\SsiFragmentRenderer(NULL, ${($_ = isset($this->services['fragment.renderer.inline']) ? $this->services['fragment.renderer.inline'] : $this->get('fragment.renderer.inline')) && false ?: '_'}, ${($_ = isset($this->services['uri_signer']) ? $this->services['uri_signer'] : $this->get('uri_signer')) && false ?: '_'});
 
         $instance->setFragmentPath('/_fragment');
 
@@ -464,7 +437,7 @@ class yiiTestDebugProjectContainer extends Container
      */
     protected function getRouterService()
     {
-        $this->services['router'] = $instance = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, 'kernel:loadRoutes', array('cache_dir' => __DIR__, 'debug' => true, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'yiiTestDebugProjectContainerUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'yiiTestDebugProjectContainerUrlMatcher', 'strict_requirements' => true, 'resource_type' => 'service'), ${($_ = isset($this->services['router.request_context']) ? $this->services['router.request_context'] : $this->getRouter_RequestContextService()) && false ?: '_'}, NULL);
+        $this->services['router'] = $instance = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, 'kernel:loadRoutes', array('cache_dir' => __DIR__, 'debug' => true, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'yiiTestDebugProjectContainerUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'yiiTestDebugProjectContainerUrlMatcher', 'strict_requirements' => true, 'resource_type' => 'service'), ${($_ = isset($this->services['router.request_context']) ? $this->services['router.request_context'] : $this->getRouter_RequestContextService()) && false ?: '_'});
 
         $instance->setConfigCacheFactory(${($_ = isset($this->services['config_cache_factory']) ? $this->services['config_cache_factory'] : $this->get('config_cache_factory')) && false ?: '_'});
 
@@ -532,23 +505,33 @@ class yiiTestDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the private '1_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a' shared service.
+     * Gets the private '1_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker
      */
-    protected function get1226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352aService()
+    protected function get1B8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9Service()
     {
-        return $this->services['1_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a'] = new \Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker($this);
+        return $this->services['1_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9'] = new \Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker($this);
     }
 
     /**
-     * Gets the private '2_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a' shared service.
+     * Gets the private '2_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9' shared service.
      *
      * @return \Symfony\Component\Config\Resource\SelfCheckingResourceChecker
      */
-    protected function get2226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352aService()
+    protected function get2B8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9Service()
     {
-        return $this->services['2_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a'] = new \Symfony\Component\Config\Resource\SelfCheckingResourceChecker();
+        return $this->services['2_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9'] = new \Symfony\Component\Config\Resource\SelfCheckingResourceChecker();
+    }
+
+    /**
+     * Gets the private 'annotations.cache' shared service.
+     *
+     * @return \Symfony\Component\Cache\DoctrineProvider
+     */
+    protected function getAnnotations_CacheService()
+    {
+        return $this->services['annotations.cache'] = new \Symfony\Component\Cache\DoctrineProvider(\Symfony\Component\Cache\Adapter\PhpArrayAdapter::create((__DIR__.'/annotations.php'), ${($_ = isset($this->services['cache.annotations']) ? $this->services['cache.annotations'] : $this->getCache_AnnotationsService()) && false ?: '_'}));
     }
 
     /**
@@ -635,7 +618,7 @@ class yiiTestDebugProjectContainer extends Container
      */
     protected function getCache_AnnotationsService($lazyLoad = true)
     {
-        return $this->services['cache.annotations'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('sYwCpbNx+O', 0, 'gNT7CdnoIZMFKD9MCp1r51', (__DIR__.'/pools'), NULL);
+        return $this->services['cache.annotations'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('sYwCpbNx+O', 0, 'mIp71oDFYRf--369QrHtt-', (__DIR__.'/pools'), NULL);
     }
 
     /**
@@ -679,18 +662,14 @@ class yiiTestDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the private 'service_locator.f3e4af76f32830cd048a9a0d4662e709' shared service.
+     * Gets the private 'service_locator.7b18bb67293e366cd46f9fdd177f059b' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
      */
-    protected function getServiceLocator_F3e4af76f32830cd048a9a0d4662e709Service()
+    protected function getServiceLocator_7b18bb67293e366cd46f9fdd177f059bService()
     {
-        return $this->services['service_locator.f3e4af76f32830cd048a9a0d4662e709'] = new \Symfony\Component\DependencyInjection\ServiceLocator(array('esi' => function () {
-            return ${($_ = isset($this->services['fragment.renderer.esi']) ? $this->services['fragment.renderer.esi'] : $this->get('fragment.renderer.esi')) && false ?: '_'};
-        }, 'inline' => function () {
+        return $this->services['service_locator.7b18bb67293e366cd46f9fdd177f059b'] = new \Symfony\Component\DependencyInjection\ServiceLocator(array('inline' => function () {
             return ${($_ = isset($this->services['fragment.renderer.inline']) ? $this->services['fragment.renderer.inline'] : $this->get('fragment.renderer.inline')) && false ?: '_'};
-        }, 'ssi' => function () {
-            return ${($_ = isset($this->services['fragment.renderer.ssi']) ? $this->services['fragment.renderer.ssi'] : $this->get('fragment.renderer.ssi')) && false ?: '_'};
         }));
     }
 
@@ -749,6 +728,7 @@ class yiiTestDebugProjectContainer extends Container
         'kernel.root_dir' => false,
         'kernel.project_dir' => false,
         'kernel.logs_dir' => false,
+        'kernel.bundles_metadata' => false,
     );
     private $dynamicParameters = array();
 
@@ -767,6 +747,13 @@ class yiiTestDebugProjectContainer extends Container
             case 'kernel.root_dir': $value = $this->targetDirs[2]; break;
             case 'kernel.project_dir': $value = $this->targetDirs[3]; break;
             case 'kernel.logs_dir': $value = ($this->targetDirs[2].'\\logs'); break;
+            case 'kernel.bundles_metadata': $value = array(
+                'FrameworkBundle' => array(
+                    'parent' => NULL,
+                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle'),
+                    'namespace' => 'Symfony\\Bundle\\FrameworkBundle',
+                ),
+            ); break;
             default: throw new InvalidArgumentException(sprintf('The dynamic parameter "%s" must be defined.', $name));
         }
         $this->loadedDynamicParameters[$name] = true;
@@ -788,13 +775,6 @@ class yiiTestDebugProjectContainer extends Container
             'kernel.cache_dir' => __DIR__,
             'kernel.bundles' => array(
                 'FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle',
-            ),
-            'kernel.bundles_metadata' => array(
-                'FrameworkBundle' => array(
-                    'parent' => NULL,
-                    'path' => 'C:\\FrameWorks\\Symfony-test\\symfony_demo-old\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle',
-                    'namespace' => 'Symfony\\Bundle\\FrameworkBundle',
-                ),
             ),
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'yiiTestDebugProjectContainer',

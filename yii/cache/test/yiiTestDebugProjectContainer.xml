@@ -14,7 +14,7 @@
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\FrameWorks\Symfony-test\symfony_demo-old\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle</parameter>
+        <parameter key="path">C:\Users\edytor\Documents\GitHub\Symfony-Blog\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
     </parameter>
@@ -94,10 +94,10 @@
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="controller_name_converter"/>
     </service>
-    <service id="2_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a" class="Symfony\Component\Config\Resource\SelfCheckingResourceChecker" public="false">
+    <service id="2_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9" class="Symfony\Component\Config\Resource\SelfCheckingResourceChecker" public="false">
       <tag name="config_cache.resource_checker" priority="-990"/>
     </service>
-    <service id="1_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a" class="Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker" public="false">
+    <service id="1_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9" class="Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker" public="false">
       <tag name="config_cache.resource_checker" priority="-980"/>
       <argument type="service" id="service_container"/>
     </service>
@@ -144,8 +144,8 @@
     </service>
     <service id="config_cache_factory" class="Symfony\Component\Config\ResourceCheckerConfigCacheFactory">
       <argument type="iterator">
-        <argument type="service" id="1_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a"/>
-        <argument type="service" id="2_226432cf999ed249a6b9bc158d83725188bba5d6525831b23768da6fe149352a"/>
+        <argument type="service" id="1_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9"/>
+        <argument type="service" id="2_b8d162d2c3af815eac7d1a76ce2becb647721b4b802262ff6e733e4f302a40d9"/>
       </argument>
     </service>
     <service id="fragment.handler" class="Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler">
@@ -169,33 +169,10 @@
         <argument>/_fragment</argument>
       </call>
     </service>
-    <service id="fragment.renderer.esi" class="Symfony\Component\HttpKernel\Fragment\EsiFragmentRenderer">
-      <tag name="kernel.fragment_renderer" alias="esi"/>
-      <argument>null</argument>
-      <argument type="service" id="fragment.renderer.inline"/>
-      <argument type="service" id="uri_signer"/>
-      <call method="setFragmentPath">
-        <argument>/_fragment</argument>
-      </call>
-    </service>
-    <service id="fragment.renderer.ssi" class="Symfony\Component\HttpKernel\Fragment\SsiFragmentRenderer">
-      <tag name="kernel.fragment_renderer" alias="ssi"/>
-      <argument>null</argument>
-      <argument type="service" id="fragment.renderer.inline"/>
-      <argument type="service" id="uri_signer"/>
-      <call method="setFragmentPath">
-        <argument>/_fragment</argument>
-      </call>
-    </service>
     <service id="console.error_listener" class="Symfony\Component\Console\EventListener\ErrorListener" public="false">
       <tag name="kernel.event_subscriber"/>
       <tag name="monolog.logger" channel="console"/>
       <argument>null</argument>
-    </service>
-    <service id="property_accessor" class="Symfony\Component\PropertyAccess\PropertyAccessor">
-      <argument>false</argument>
-      <argument>false</argument>
-      <argument type="service" id="cache.property_access" on-invalid="ignore"/>
     </service>
     <service id="cache.app" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" lazy="true">
       <tag name="cache.pool"/>
@@ -209,7 +186,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer" unlazy="1"/>
       <argument>x3dUAyCihf</argument>
       <argument>0</argument>
-      <argument>gNT7CdnoIZMFKD9MCp1r51</argument>
+      <argument>mIp71oDFYRf--369QrHtt-</argument>
       <argument>C:\Users\edytor\Documents\GitHub\Symfony-Blog\yii\cache\test/pools</argument>
       <argument>null</argument>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -219,7 +196,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>3O+Sgr0qr+</argument>
       <argument>0</argument>
-      <argument>gNT7CdnoIZMFKD9MCp1r51</argument>
+      <argument>mIp71oDFYRf--369QrHtt-</argument>
       <argument>C:\Users\edytor\Documents\GitHub\Symfony-Blog\yii\cache\test/pools</argument>
       <argument>null</argument>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -229,7 +206,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>mp4TequazZ</argument>
       <argument>0</argument>
-      <argument>gNT7CdnoIZMFKD9MCp1r51</argument>
+      <argument>mIp71oDFYRf--369QrHtt-</argument>
       <argument>C:\Users\edytor\Documents\GitHub\Symfony-Blog\yii\cache\test/pools</argument>
       <argument>null</argument>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -239,7 +216,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>sYwCpbNx+O</argument>
       <argument>0</argument>
-      <argument>gNT7CdnoIZMFKD9MCp1r51</argument>
+      <argument>mIp71oDFYRf--369QrHtt-</argument>
       <argument>C:\Users\edytor\Documents\GitHub\Symfony-Blog\yii\cache\test/pools</argument>
       <argument>null</argument>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -249,7 +226,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>gNT7CdnoIZMFKD9MCp1r51</argument>
+      <argument>mIp71oDFYRf--369QrHtt-</argument>
       <argument>C:\Users\edytor\Documents\GitHub\Symfony-Blog\yii\cache\test/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -259,7 +236,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>gNT7CdnoIZMFKD9MCp1r51</argument>
+      <argument>mIp71oDFYRf--369QrHtt-</argument>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
       </call>
@@ -495,7 +472,6 @@
       <argument type="service" id="routing.resolver"/>
     </service>
     <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router" public="false">
-      <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
       <argument>kernel:loadRoutes</argument>
       <argument type="collection">
@@ -513,7 +489,6 @@
         <argument key="resource_type">service</argument>
       </argument>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
-      <argument>null</argument>
       <call method="setConfigCacheFactory">
         <argument type="service" id="config_cache_factory"/>
       </call>
@@ -538,22 +513,28 @@
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument>null</argument>
     </service>
-    <service id="3_71bf28745a62657622b5bab738b74a7f51aa5549dae758ae3654b09380b10aca" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+    <service id="2_d6a484699cf52bcc9ac4812750483a82a520384d36bdb03c410908b57769c495" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
       <argument>C:\Users\edytor\Documents\GitHub\Symfony-Blog\yii\cache\test/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
-    <service id="2_71bf28745a62657622b5bab738b74a7f51aa5549dae758ae3654b09380b10aca" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
-    <service id="1_71bf28745a62657622b5bab738b74a7f51aa5549dae758ae3654b09380b10aca" class="Doctrine\Common\Annotations\AnnotationRegistry" public="false">
+    <service id="1_d6a484699cf52bcc9ac4812750483a82a520384d36bdb03c410908b57769c495" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
+    <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader" public="false">
+      <call method="addGlobalIgnoredName">
+        <argument>required</argument>
+        <argument type="service" id="annotations.dummy_registry"/>
+      </call>
+    </service>
+    <service id="annotations.dummy_registry" class="Doctrine\Common\Annotations\AnnotationRegistry" public="false">
       <call method="registerLoader">
         <argument>class_exists</argument>
       </call>
     </service>
-    <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader" public="false">
-      <call method="addGlobalIgnoredName">
-        <argument>required</argument>
-        <argument type="service" id="1_71bf28745a62657622b5bab738b74a7f51aa5549dae758ae3654b09380b10aca"/>
-      </call>
+    <service id="annotations.cached_reader" class="Doctrine\Common\Annotations\CachedReader" public="false">
+      <argument type="service" id="annotations.reader"/>
+      <argument type="service" id="1_d6a484699cf52bcc9ac4812750483a82a520384d36bdb03c410908b57769c495"/>
+      <argument>true</argument>
+      <property name="cacheProviderBackup" type="service" id="annotations.cache"/>
     </service>
     <service id="annotations.filesystem_cache" class="Doctrine\Common\Cache\FilesystemCache" public="false">
       <argument></argument>
@@ -565,7 +546,12 @@
       <argument type="service" id="cache.annotations"/>
     </service>
     <service id="annotations.cache" class="Symfony\Component\Cache\DoctrineProvider" public="false">
-      <argument type="service" id="3_71bf28745a62657622b5bab738b74a7f51aa5549dae758ae3654b09380b10aca"/>
+      <argument type="service" id="2_d6a484699cf52bcc9ac4812750483a82a520384d36bdb03c410908b57769c495"/>
+    </service>
+    <service id="property_accessor" class="Symfony\Component\PropertyAccess\PropertyAccessor">
+      <argument>false</argument>
+      <argument>false</argument>
+      <argument type="service" id="cache.property_access" on-invalid="ignore"/>
     </service>
     <service id="service_locator.6f24348b77840ec12a20c22a3f985cf7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -590,12 +576,6 @@
         <argument type="service" id="argument_resolver.variadic"/>
       </argument>
     </service>
-    <service id="annotations.cached_reader" class="Doctrine\Common\Annotations\CachedReader" public="false">
-      <tag name="annotations.cached_reader" provider="annotations.cache"/>
-      <argument type="service" id="annotations.reader"/>
-      <argument type="service" id="annotations.cache"/>
-      <argument>true</argument>
-    </service>
     <service id="Psr\Container\ContainerInterface" alias="service_container" public="false"/>
     <service id="Symfony\Component\DependencyInjection\ContainerInterface" alias="service_container" public="false"/>
     <service id="Symfony\Component\EventDispatcher\EventDispatcherInterface" alias="debug.event_dispatcher" public="false"/>
@@ -604,7 +584,6 @@
     <service id="Symfony\Component\HttpKernel\KernelInterface" alias="kernel" public="false"/>
     <service id="Symfony\Component\Filesystem\Filesystem" alias="filesystem" public="false"/>
     <service id="Symfony\Component\HttpKernel\Config\FileLocator" alias="file_locator" public="false"/>
-    <service id="Symfony\Component\PropertyAccess\PropertyAccessorInterface" alias="property_accessor" public="false"/>
     <service id="cache.app_clearer" alias="cache.default_clearer"/>
     <service id="Psr\Cache\CacheItemPoolInterface" alias="cache.app" public="false"/>
     <service id="cache.default_redis_provider" alias="c66c8daa4fa4dead6a562ed2c4bdb322" public="false"/>
@@ -618,6 +597,7 @@
     <service id="Symfony\Component\Routing\RequestContext" alias="router.request_context" public="false"/>
     <service id="annotation_reader" alias="annotations.cached_reader"/>
     <service id="Doctrine\Common\Annotations\Reader" alias="annotations.cached_reader" public="false"/>
+    <service id="Symfony\Component\PropertyAccess\PropertyAccessorInterface" alias="property_accessor" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher"/>
     <service id="controller_resolver" alias="debug.controller_resolver" public="false"/>
     <service id="argument_resolver" alias="debug.argument_resolver" public="false"/>

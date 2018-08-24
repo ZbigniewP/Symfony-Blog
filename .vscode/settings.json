@@ -1,5 +1,5 @@
 {
     // "phpserver.relativePath": "./public"
-    "phpserver.relativePath": "./web"
-    // "phpserver.relativePath": "./Yii"
+    // "phpserver.relativePath": "./web"
+    "phpserver.relativePath": "./Yii"
 }

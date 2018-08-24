@@ -31,9 +31,7 @@ if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
 if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
     Request::setTrustedHosts(explode(',', $trustedHosts));
 }
-// Symfony\Component\HttpKernel\Kernel 
-// ver:3.3.6 require_once '../app/Kernel.php';
-// C:\FrameWorks\Symfony-test\symfony_demo-old\vendor\symfony\symfony\src\Symfony\Component\HttpKernel\Kernel.php
+
 $kernel = new Kernel($env, $debug);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);

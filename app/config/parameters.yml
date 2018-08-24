@@ -3,5 +3,5 @@ parameters:
     locale: pl
     env(SYMFONY_SECRET): __DeMoSymfony__
     env(LOG_URL): '%kernel.logs_dir%/%kernel.environment%.log'
-    env(DATABASE_URL): 'sqlite:///%kernel.project_dir%/var/data/blog_symfony.sqlite'
+    env(DATABASE_URL): 'sqlite:///%kernel.project_dir%/bin/data/blog_symfony.sqlite'
     env(MAILER_URL): 'smtp://localhost:25?encryption=&auth_mode='

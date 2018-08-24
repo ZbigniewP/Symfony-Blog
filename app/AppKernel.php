@@ -27,9 +27,12 @@ class AppKernel extends Kernel
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            ## composer require white-october/pagerfanta-bundle
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            //$ composer create-project symfony/symfony-demo
             new CodeExplorerBundle\CodeExplorerBundle(),
             new AppBundle\AppBundle(),
+            ## composer require doctrine/doctrine-fixtures-bundle
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(), // used for initial population of non-SQLite databases in production envs
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
 

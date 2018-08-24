@@ -6,9 +6,9 @@ parameters:
     # fixed and known set of data fixtures, it simplifies the code of tests and it
     # makes them more robust.
     # In this case we just need to define a different path for the application database.
-    env(DATABASE_URL): 'sqlite:///%kernel.project_dir%/var/data/blog_test_symfony.sdb3'
-    # env(DATABASE_URL): 'sqlite:///%kernel.project_dir%/var/data/blog_test_yii.sdb3'
-    # env(DATABASE_URL): 'sqlite:///%kernel.project_dir%/var/data/blog_test.sqlite'
+    env(DATABASE_URL): 'sqlite:///%kernel.project_dir%/bin/data/blog_test_symfony.sdb3'
+    # env(DATABASE_URL): 'sqlite:///%kernel.project_dir%/bin/data/blog_test_yii.sdb3'
+    # env(DATABASE_URL): 'sqlite:///%kernel.project_dir%/bin/data/blog_test.sqlite'
 
 framework:
     test: ~
