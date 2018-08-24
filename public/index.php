@@ -5,7 +5,8 @@ use Symfony\Component\Debug\Debug;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload-4.1.1.php';
+// require __DIR__.'/../vendor/autoload-3.3.6.php';
 
 // The check is to ensure we don't use .env in production
 if (!isset($_SERVER['APP_ENV'])) {
@@ -30,7 +31,9 @@ if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
 if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
     Request::setTrustedHosts(explode(',', $trustedHosts));
 }
-
+// Symfony\Component\HttpKernel\Kernel 
+// ver:3.3.6 require_once '../app/Kernel.php';
+// C:\FrameWorks\Symfony-test\symfony_demo-old\vendor\symfony\symfony\src\Symfony\Component\HttpKernel\Kernel.php
 $kernel = new Kernel($env, $debug);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);

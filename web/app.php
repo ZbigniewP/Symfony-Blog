@@ -36,7 +36,7 @@ if (PHP_VERSION_ID < 70000) {
 // $apcLoader = new Symfony\Component\ClassLoader\ApcClassLoader(sha1(__FILE__), $loader);
 // $loader->unregister();
 // $apcLoader->register(true);
-
+require_once '../app/AppKernel.php';require_once '../app/AppCache.php';
 $kernel = new AppKernel('prod', false);
 if (PHP_VERSION_ID < 70000) {
     $kernel->loadClassCache();
